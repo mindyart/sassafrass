@@ -21,6 +21,44 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+
+		/**
+		 * The Sign-In client object.
+		 */
+		var auth2;
+
+		/**
+		 * Initializes the Sign-In client.
+		 */
+		var initClient = function() {
+		    gapi.load('auth2', function(){
+		        /**
+		         * Retrieve the singleton for the GoogleAuth library and set up the
+		         * client.
+		         */
+		        auth2 = gapi.auth2.init({
+		            client_id: "922954036147-l5cvgjrl1brgbh9suth84muqehiaht7n.apps.googleusercontent.com"
+		        });
+
+		        // Attach the click handler to the sign-in button
+		        auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
+		    });
+		};
+
+		/**
+		 * Handle successful sign-ins.
+		 */
+		var onSuccess = function(user) {
+		    console.log('Signed in as ' + user.getBasicProfile().getName());
+		 };
+
+		/**
+		 * Handle sign-in failures.
+		 */
+		var onFailure = function(error) {
+		    console.log(error);
+		};
+
       };
     </script>
   </body>
