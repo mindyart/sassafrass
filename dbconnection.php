@@ -1,14 +1,14 @@
 <?php
 function getdb(){
 $servername = "us-cdbr-iron-east-05.cleardb.net";
-$username = "bb0d2f98312b26";
-$password = "5f223c55";
-$db = "heroku_ea9976a5409603d";
- 
+$username = "be47041b8f6eac";
+$password = "d6cb8661";
+$db = "heroku_17d28927bcb96ef";
+
 try {
-   
+
     $conn = mysqli_connect($servername, $username, $password, $db);
-     //echo "Connected successfully"; 
+     //echo "Connected successfully";
     }
 catch(exception $e)
     {
@@ -16,4 +16,4 @@ catch(exception $e)
     }
     return $conn;
 }
-?>  
+?>
