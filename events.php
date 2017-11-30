@@ -1,3 +1,4 @@
+
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"
@@ -20,6 +21,12 @@
             <td>Secret Santa. This event will be held on December 4th, 2017. <br></td>
 <!-- Progress - pull going/threshold from database-->
             <td></td>
+			<?php
+			include "dbconnection.php";
+			$con = getdb(); 
+
+			
+			?>
 <!-- pull deadline -->
             <td></td>
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
