@@ -28,17 +28,22 @@
           <!-- real example -->
           <tr>
             <td>Secret Santa. This event will be held on December 4th, 2017. <br></td>
+            <td>
+            <div class="progress-wrap-sv progress-sv" data-progress-percent="40">
+              <div class="progress-bar-sv progress-sv"></div>
+            </div>
+            </td>
 			<?php
 			include "dbconnection.php";
 
-			$con = getdb(); 
+			$con = getdb();
 			$sql = "SELECT e.Deadline
 					, e.Going
 					,e.Threshold
 					FROM Events e
 					WHERE e.EventID = 1;";
-			
-			$result = mysqli_query($con, $sql);  
+
+			$result = mysqli_query($con, $sql);
 
 
 			if (mysqli_num_rows($result) > 0) {
@@ -46,39 +51,20 @@
 				 while($row = mysqli_fetch_assoc($result)) {
 
 
-					 echo "<tr> 
+					 echo "<tr>
 								<td>" . $row['Deadline']."</td>";
-							
-				 } 
-				
+
+				 }
+
 				 echo "</tbody></table></div>";
-				 
-			} else 
+
+			} else
 			{
-				
+
 				 echo "you have no records";
-				 
+
 			}
 		?>
-
-
-
-<!-- Progress - pull going/threshold from database-->
-
-<!-- pull deadline -->
-  <td></td>
-
-<td></td>
-
-
- <!-- pull deadline -->
-            <td>
-            <div class="progress-wrap-sv progress-sv" data-progress-percent="40">
-              <div class="progress-bar-sv progress-sv"></div>
-            </div>
-            </td>
-
-			<td></td>
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
             <td></td>
           </tr>
