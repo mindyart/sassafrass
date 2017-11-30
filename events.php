@@ -59,8 +59,6 @@
 
             }
 
-
-            <!-- 3rd column -->
             echo '<td>
             <div class="progress-wrap-sv progress-sv" data-progress-percent="' . $percentage '">
               <div class="progress-bar-sv progress-sv"></div>
