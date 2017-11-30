@@ -40,14 +40,6 @@
 			
 			$result = mysqli_query($con, $sql);  
 
-			$con = getdb();
-			$Sql = "SELECT e.Deadline
-					, e.Going
-					,e.Threshold
-					FROM Events e
-					WHERE e.EventID = 1;"
-			 $result = mysqli_query($con, $Sql);
-
 
 			if (mysqli_num_rows($result) > 0) {
 
@@ -67,29 +59,16 @@
 				 echo "you have no records";
 				 
 			}
-					
-			
-
-         echo "<tr>
-					<td>" . $row['Deadline']."</td>";
-
-     }
-
-     echo "</tbody></table></div>";
-
-} else {
-     echo "you have no records";
-}
+		?>
 
 
 
+<!-- Progress - pull going/threshold from database-->
 
-//<!-- Progress - pull going/threshold from database-->
+<!-- pull deadline -->
+  <td></td>
 
-//<!-- pull deadline -->
-            //<td></td>
-
-			//<td></td>
+<td></td>
 
 
  <!-- pull deadline -->
