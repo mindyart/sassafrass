@@ -50,7 +50,7 @@
                  echo "<td>" . $row['Deadline']."</td>";
                  $going = $row['Going'];
                  $threshold = $row['Threshold'];
-                 $percentage = $going / $threshold;
+                 $percentage = ($going / $threshold * 100);
                }
             } else
             {
