@@ -117,8 +117,8 @@
   // SIGNATURE PROGRESS
   function moveProgressBar() {
     console.log("moveProgressBar");
-      var getPercent1 = ($('#1a').data('progress-percent') / 100);
-      var getProgressWrapWidth1 = $('#1').width();
+      var getPercent1 = ($('.progress-wrap-sv').data('progress-percent') / 100);
+      var getProgressWrapWidth1 = $('.progress-wrap-sv').width();
       var progressTotal1 = getPercent1 * getProgressWrapWidth1;
       var animationLength = 2500;
 
