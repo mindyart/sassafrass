@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <img src = "logo.jpg" width = 100% height = 40%/>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <img src = "assets/logo.jpg" width = 100% height = 40%/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -67,17 +67,17 @@
               <div id="1" class="progress-bar-sv progress-sv"></div>
             </div>
             </td>'
-			
-		
-			
+
+
+
             ?>
 
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
            <td>
 		  <button type="button" class="btn btn-success">Going</button>
-		  
-		  
-	
+
+
+
 
 		   </td>
           </tr>
