@@ -76,10 +76,12 @@
           </tr>
           <!-- hardcoded example -->
           <tr>
-            <td>Paint Night</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Lonely Hearts Paint Night. This event will be held on February 14th, 2018</td>
+            <td>2018-02-07 12:00:00</td>
+            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="' . $percentage . '">
+              <div class="progress-bar-sv progress-sv"></div>
+            </div></td>
+            <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
         </tbody>
       </table>
