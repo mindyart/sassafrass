@@ -69,7 +69,9 @@
             ?>
 
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
-            <td></td>
+           <td>
+		   <button type="button" class="btn btn-success">Going</button>
+		   </td>
           </tr>
           <!-- hardcoded example -->
           <tr>
