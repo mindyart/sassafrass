@@ -1,1 +1,19 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" ></link> 
+@import "compass/css3";
+
+.progress-sv {
+  width: 100%;
+  height: 50px;
+}
+.progress-wrap-sv {
+  background: blue;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+
+}
+.progress-bar-sv {
+  background: #ddd;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
