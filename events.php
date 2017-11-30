@@ -19,52 +19,52 @@
         <thead>
           <tr>
             <th>Event Details</th>
-            <th>Progress</th>
             <th>Deadline</th>
+            <th>Progress</th>
             <th>Interested?</th>
           </tr>
         </thead>
         <tbody>
           <!-- real example -->
           <tr>
+            <!-- 1st column -->
             <td>Secret Santa. This event will be held on December 4th, 2017. <br></td>
+
+            <!-- 2nd column -->
+            <?php
+            include "dbconnection.php";
+
+            $con = getdb();
+            $sql = "SELECT e.Deadline
+                , e.Going
+                ,e.Threshold
+                FROM Events e
+                WHERE e.EventID = 1;";
+
+            $result = mysqli_query($con, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+
+               while($row = mysqli_fetch_assoc($result)) {
+
+                 echo "<td>" . $row['Deadline']."</td>";
+
+               }
+            } else
+            {
+
+               echo "you have no records";
+
+            }
+            ?>
+
+            <!-- 3rd column -->
             <td>
             <div class="progress-wrap-sv progress-sv" data-progress-percent="40">
               <div class="progress-bar-sv progress-sv"></div>
             </div>
             </td>
-			<?php
-			include "dbconnection.php";
 
-			$con = getdb();
-			$sql = "SELECT e.Deadline
-					, e.Going
-					,e.Threshold
-					FROM Events e
-					WHERE e.EventID = 1;";
-
-			$result = mysqli_query($con, $sql);
-
-
-			if (mysqli_num_rows($result) > 0) {
-
-				 while($row = mysqli_fetch_assoc($result)) {
-
-
-					 echo "<tr>
-								<td>" . $row['Deadline']."</td>";
-
-				 }
-
-				 echo "</tbody></table></div>";
-
-			} else
-			{
-
-				 echo "you have no records";
-
-			}
-		?>
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
             <td></td>
           </tr>
