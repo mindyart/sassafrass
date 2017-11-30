@@ -67,14 +67,18 @@
               <div class="progress-bar-sv progress-sv"></div>
             </div>
             </td>'
+			
+		
+			
             ?>
 
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
            <td>
 		  <button type="button" class="btn btn-success">Going</button>
-		  <!--- <form method="post" action="mailto:piamedina@hotmail.com.com" > --->
-			<!---<input type="submit" class="btn btn-default" value="Going" /> --->
-			</form>
+		  
+		  
+	
+
 		   </td>
           </tr>
           <!-- hardcoded example -->
