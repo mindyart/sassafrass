@@ -15,8 +15,9 @@
 
   </head>
   <body>
-    <h1>Events</h1>
+    
     <div class="container">
+    <h1>Events</h1>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -80,7 +81,7 @@
           <tr>
             <td>Lonely Hearts Paint Night. This event will be held on February 14th, 2018</td>
             <td>2018-02-07 12:00:00</td>
-            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="90%">
+            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="90">
               <div class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
@@ -88,7 +89,7 @@
           <tr>
             <td>Spicy Salsa Night. This event will be held on May 5th, 2018</td>
             <td>2018-04-20 12:00:00</td>
-            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="20%">
+            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="20">
               <div class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
@@ -96,7 +97,7 @@
           <tr>
             <td>Kylie Jenner's Live Birth Viewing Party. This event will be held on August 20th, 2018</td>
             <td>2018-08-19 12:00:00</td>
-            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="99%">
+            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="99">
               <div class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
