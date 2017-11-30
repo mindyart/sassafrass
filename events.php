@@ -2,16 +2,15 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-=======
+
     <script>
     // Get items from local storage for placing in the DB
       var email = localStorage.getItem("Email");
       var id_token = localStorage.getItem("id_token");
     </script>
->>>>>>> 11015def13ec8bc2e11346f39cb25c4aab5c1c70
+
   </head>
   <body>
     <h1>Events</h1>
@@ -31,7 +30,7 @@
             <td>Secret Santa. This event will be held on December 4th, 2017. <br></td>
 			<?php
 			include "dbconnection.php";
-<<<<<<< HEAD
+
 			$con = getdb(); 
 			$sql = "SELECT e.Deadline
 					, e.Going
@@ -40,7 +39,7 @@
 					WHERE e.EventID = 1;";
 			
 			$result = mysqli_query($con, $sql);  
-=======
+
 			$con = getdb();
 			$Sql = "SELECT e.Deadline
 					, e.Going
@@ -48,13 +47,13 @@
 					FROM Events e
 					WHERE e.EventID = 1;"
 			 $result = mysqli_query($con, $Sql);
->>>>>>> 77b45239c0511cc35a13d2a7a9c866aada8bddfb
+
 
 			if (mysqli_num_rows($result) > 0) {
 
 				 while($row = mysqli_fetch_assoc($result)) {
 
-<<<<<<< HEAD
+
 					 echo "<tr> 
 								<td>" . $row['Deadline']."</td>";
 							
@@ -70,7 +69,7 @@
 			}
 					
 			
-=======
+
          echo "<tr>
 					<td>" . $row['Deadline']."</td>";
 
@@ -83,7 +82,7 @@
 }
 
 
->>>>>>> 77b45239c0511cc35a13d2a7a9c866aada8bddfb
+
 
 //<!-- Progress - pull going/threshold from database-->
 
