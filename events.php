@@ -81,24 +81,24 @@
           <tr>
             <td>Lonely Hearts Paint Night. This event will be held on February 14th, 2018</td>
             <td>2018-02-07 12:00:00</td>
-            <td><div id="2" class="progress-wrap-sv progress-sv" data-progress-percent="40">
-              <div id="2a" class="progress-bar-sv progress-sv"></div>
+            <td><div id="2a" class="progress-wrap-sv progress-sv" data-progress-percent="70">
+              <div id="2" class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
           <tr>
             <td>Spicy Salsa Night. This event will be held on May 5th, 2018</td>
             <td>2018-04-20 12:00:00</td>
-            <td><div id="3" class="progress-wrap-sv progress-sv" data-progress-percent=20>
-              <div id="3a" class="progress-bar-sv progress-sv"></div>
+            <td><div id="3a" class="progress-wrap-sv progress-sv" data-progress-percent=40>
+              <div id="3" class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
           <tr>
             <td>Kylie Jenner's Live Birth Viewing Party. This event will be held on August 20th, 2018</td>
             <td>2018-08-19 12:00:00</td>
-            <td><div id="4" class="progress-wrap-sv progress-sv" data-progress-percent=30>
-              <div id="4a" class="progress-bar-sv progress-sv"></div>
+            <td><div id="4a" class="progress-wrap-sv progress-sv" data-progress-percent=10>
+              <div id="4" class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
@@ -117,7 +117,7 @@
   // SIGNATURE PROGRESS
   function moveProgressBar() {
     console.log("moveProgressBar");
-      var getPercent1 = ($('#1').data('progress-percent') / 100);
+      var getPercent1 = ($('#1a').data('progress-percent') / 100);
       var getProgressWrapWidth1 = $('#1').width();
       var progressTotal1 = getPercent1 * getProgressWrapWidth1;
       var animationLength = 2500;
