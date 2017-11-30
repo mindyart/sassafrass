@@ -22,7 +22,10 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
-        window.location = "events.html"; 
+        window.location = "events.php"; 
+        localStorage.setItem("Email", profile.getEmail());
+        localStorage.setItem("id_token", getAuthResponse.id_token());
+
 
       };
     </script>
