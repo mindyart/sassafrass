@@ -19,16 +19,25 @@
           <!-- real example -->
           <tr>
             <td>Secret Santa. This event will be held on December 4th, 2017. <br></td>
-<!-- Progress - pull going/threshold from database-->
-            <td></td>
 			<?php
 			include "dbconnection.php";
 			$con = getdb(); 
+			$Sql = "SELECT e.Deadline
+					, e.Going
+					,e.Threshold
+					FROM Events e
+					WHERE e.EventID = 1;
+
+//<!-- Progress - pull going/threshold from database-->
+    
+//<!-- pull deadline -->
+            <td></td>
+			
+			<td></td>
+			
 
 			
 			?>
-<!-- pull deadline -->
-            <td></td>
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
             <td></td>
           </tr>
