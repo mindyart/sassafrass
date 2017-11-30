@@ -63,8 +63,8 @@
             }
 
             echo '<td>
-            <div class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
-              <div class="progress-bar-sv progress-sv"></div>
+            <div id="1" class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
+              <div id="1a" class="progress-bar-sv progress-sv"></div>
             </div>
             </td>'
             ?>
@@ -81,24 +81,24 @@
           <tr>
             <td>Lonely Hearts Paint Night. This event will be held on February 14th, 2018</td>
             <td>2018-02-07 12:00:00</td>
-            <td><div class="progress-wrap-sv progress-sv" data-progress-percent="90">
-              <div class="progress-bar-sv progress-sv"></div>
+            <td><div id="2" class="progress-wrap-sv progress-sv" data-progress-percent="40">
+              <div id="2a" class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
           <tr>
             <td>Spicy Salsa Night. This event will be held on May 5th, 2018</td>
             <td>2018-04-20 12:00:00</td>
-            <td><div class="progress-wrap-sv progress-sv" data-progress-percent=20>
-              <div class="progress-bar-sv progress-sv"></div>
+            <td><div id="3" class="progress-wrap-sv progress-sv" data-progress-percent=20>
+              <div id="3a" class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
           <tr>
             <td>Kylie Jenner's Live Birth Viewing Party. This event will be held on August 20th, 2018</td>
             <td>2018-08-19 12:00:00</td>
-            <td><div class="progress-wrap-sv progress-sv" data-progress-percent=99>
-              <div class="progress-bar-sv progress-sv"></div>
+            <td><div id="4" class="progress-wrap-sv progress-sv" data-progress-percent=30>
+              <div id="4a" class="progress-bar-sv progress-sv"></div>
             </div></td>
             <td><button type="button" class="btn btn-success">Going</button></td>
           </tr>
@@ -117,15 +117,48 @@
   // SIGNATURE PROGRESS
   function moveProgressBar() {
     console.log("moveProgressBar");
-      var getPercent = ($('.progress-wrap-sv').data('progress-percent') / 100);
-      var getProgressWrapWidth = $('.progress-wrap-sv').width();
-      var progressTotal = getPercent * getProgressWrapWidth;
+      var getPercent1 = ($('#1').data('progress-percent') / 100);
+      var getProgressWrapWidth1 = $('#1').width();
+      var progressTotal1 = getPercent1 * getProgressWrapWidth1;
       var animationLength = 2500;
 
       // on page load, animate percentage bar to data percentage length
       // .stop() used to prevent animation queueing
-      $('.progress-bar-sv').stop().animate({
-          left: progressTotal
+      $('#1').stop().animate({
+          left: progressTotal1
+      }, animationLength);
+
+      var getPercent2 = ($('#2a').data('progress-percent') / 100);
+      var getProgressWrapWidth2 = $('#2').width();
+      var progressTotal2 = getPercent2 * getProgressWrapWidth2;
+      var animationLength = 2500;
+
+      // on page load, animate percentage bar to data percentage length
+      // .stop() used to prevent animation queueing
+      $('#2').stop().animate({
+          left: progressTotal2
+      }, animationLength);
+
+      var getPercent3 = ($('#3a').data('progress-percent') / 100);
+      var getProgressWrapWidth3 = $('#3').width();
+      var progressTotal3 = getPercent3 * getProgressWrapWidth3;
+      var animationLength = 2500;
+
+      // on page load, animate percentage bar to data percentage length
+      // .stop() used to prevent animation queueing
+      $('#3').stop().animate({
+          left: progressTotal3
+      }, animationLength);
+
+      var getPercent4 = ($('#4a').data('progress-percent') / 100);
+      var getProgressWrapWidth4 = $('#4').width();
+      var progressTotal4 = getPercent4 * getProgressWrapWidth4;
+      var animationLength = 2500;
+
+      // on page load, animate percentage bar to data percentage length
+      // .stop() used to prevent animation queueing
+      $('#4').stop().animate({
+          left: progressTotal4
       }, animationLength);
   }
       </script>
