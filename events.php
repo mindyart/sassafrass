@@ -63,8 +63,8 @@
             }
 
             echo '<td>
-            <div id="1" class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
-              <div id="1a" class="progress-bar-sv progress-sv"></div>
+            <div id="1a" class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
+              <div id="1" class="progress-bar-sv progress-sv"></div>
             </div>
             </td>'
             ?>
@@ -117,8 +117,8 @@
   // SIGNATURE PROGRESS
   function moveProgressBar() {
     console.log("moveProgressBar");
-      var getPercent1 = ($('.progress-wrap-sv').data('progress-percent') / 100);
-      var getProgressWrapWidth1 = $('.progress-wrap-sv').width();
+      var getPercent1 = ($('#1a').data('progress-percent') / 100);
+      var getProgressWrapWidth1 = $('#1').width();
       var progressTotal1 = getPercent1 * getProgressWrapWidth1;
       var animationLength = 2500;
 
