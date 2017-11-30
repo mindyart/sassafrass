@@ -27,7 +27,7 @@
 					,e.Threshold
 					FROM Events e
 					WHERE e.EventID = 1;"
-			    $result = mysqli_query($con, $Sql);  
+			 $result = mysqli_query($con, $Sql);  
 
 if (mysqli_num_rows($result) > 0) {
 
@@ -49,9 +49,9 @@ if (mysqli_num_rows($result) > 0) {
 //<!-- Progress - pull going/threshold from database-->
     
 //<!-- pull deadline -->
-            <td></td>
+            //<td></td>
 			
-			<td></td>
+			//<td></td>
 			
 
 			
