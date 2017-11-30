@@ -48,7 +48,9 @@
                while($row = mysqli_fetch_assoc($result)) {
 
                  echo "<td>" . $row['Deadline']."</td>";
-
+                 $going = $row['Going'];
+                 $threshold = $row['Threshold'];
+                 $percentage = $going / $threshold;
                }
             } else
             {
@@ -56,14 +58,15 @@
                echo "you have no records";
 
             }
-            ?>
+
 
             <!-- 3rd column -->
-            <td>
-            <div class="progress-wrap-sv progress-sv" data-progress-percent="40">
+            echo '<td>
+            <div class="progress-wrap-sv progress-sv" data-progress-percent="' . $percentage '">
               <div class="progress-bar-sv progress-sv"></div>
             </div>
-            </td>
+            </td>'
+            ?>
 
 <!-- get michelle's google authentication variable and add to database + increment going by 1 -->
             <td></td>
