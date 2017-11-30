@@ -27,27 +27,31 @@
 			<?php
 			include "dbconnection.php";
 			$con = getdb(); 
-			$Sql = "SELECT e.Deadline
+			$sql = "SELECT e.Deadline
 					, e.Going
 					,e.Threshold
 					FROM Events e
-					WHERE e.EventID = 1;"
-			 $result = mysqli_query($con, $Sql);  
+					WHERE e.EventID = 1;";
+			
+			$result = mysqli_query($con, $sql);  
 
-if (mysqli_num_rows($result) > 0) {
+			if (mysqli_num_rows($result) > 0) {
 
-     while($row = mysqli_fetch_assoc($result)) {
+				 while($row = mysqli_fetch_assoc($result)) {
 
-         echo "<tr> 
-					<td>" . $row['Deadline']."</td>";
+					 echo "<tr> 
+								<td>" . $row['Deadline']."</td>";
+							
+				 } 
 				
-     } 
-    
-     echo "</tbody></table></div>";
-     
-} else {
-     echo "you have no records";
-}
+				 echo "</tbody></table></div>";
+				 
+			} else 
+			{
+				
+				 echo "you have no records";
+				 
+			}
 					
 			
 
