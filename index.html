@@ -23,6 +23,9 @@
         console.log("ID Token: " + id_token);
 
         window.location = "events.html"; 
+        localStorage.setItem("Email", profile.getEmail());
+        localStorage.setItem("id_token", getAuthResponse.id_token());
+
 
       };
     </script>
