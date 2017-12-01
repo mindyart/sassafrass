@@ -15,25 +15,13 @@
 
   </head>
   <body>
-
+    <h1>What's going on? 📅</h1>
+    <p class="desc"></p>
     <div class="container" padding = "">
-    <h1 style="padding-top: 10px" >Events</h1>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Event Details</th>
-            <th>Deadline</th>
-            <th>Progress</th>
-            <th>Interested?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- real example -->
-          <tr>
-            <!-- 1st column -->
-            <td>Secret Santa. This event will be held on December 4th, 2017. <br></td>
+      <div class="row">
+        <div class="col">
+          <h2><a id="title" href="https://emojikeyboard.org/">Secret Santa</a></h2>
 
-            <!-- 2nd column -->
             <?php
             include "dbconnection.php";
 
@@ -49,66 +37,41 @@
             if (mysqli_num_rows($result) > 0) {
 
                while($row = mysqli_fetch_assoc($result)) {
-
-                 echo "<td>" . $row['Deadline']."</td>";
                  $going = $row['Going'];
                  $threshold = $row['Threshold'];
                  $percentage = ($going / $threshold * 100);
+                 echo 'Target date: December 4th, 2017. <br>
+                 Deadline: ' . $row['Deadline'] .
+                 '<h3>' . $going . ' going </h3>
+                 <p class="tiltRight">Tilts at ' . $threshold . '</p>';
                }
-            } else
+            }
+            else
             {
-
                echo "you have no records";
-
             }
 
-            echo '<td>
-            <div id="1a" class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
-              <div id="1" class="progress-bar-sv progress-sv"></div>
-            </div>
-            </td>'
-
-
-
+            echo '<div id="1a" class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
+                    <div id="1" class="progress-bar-sv progress-sv"></div>
+                  </div>'
             ?>
 
-<!-- get michelle's google authentication variable and add to database + increment going by 1 -->
-           <td>
-		  <button type="button" class="btn btn-success">Going</button>
-
-
-
-
-		   </td>
-          </tr>
+		        <button type="button" class="btn btn-default btn-lg">Going 🙋</button>
+          </div>
           <!-- hardcoded example -->
-          <tr>
-            <td>Lonely Hearts Paint Night. This event will be held on February 14th, 2018</td>
-            <td>2018-02-07 12:00:00</td>
-            <td><div id="2a" class="progress-wrap-sv progress-sv" data-progress-percent="70">
+          <div class="col">
+            <h2><a id="title" href="http://www.color-hex.com/color-names.html">Basketball Tourney</a></h2>
+            Target date: February 14th, 2018 <br>
+            Deadline: 2018-02-07 23:15:00
+            <h3> 10 going </h3>
+            <p class="tiltRight">Tilts at 20</p>
+            <div id="2a" class="progress-wrap-sv progress-sv" data-progress-percent="50">
               <div id="2" class="progress-bar-sv progress-sv"></div>
-            </div></td>
-            <td><button type="button" class="btn btn-success">Going</button></td>
-          </tr>
-          <tr>
-            <td>Spicy Salsa Night. This event will be held on May 5th, 2018</td>
-            <td>2018-04-20 12:00:00</td>
-            <td><div id="3a" class="progress-wrap-sv progress-sv" data-progress-percent=40>
-              <div id="3" class="progress-bar-sv progress-sv"></div>
-            </div></td>
-            <td><button type="button" class="btn btn-success">Going</button></td>
-          </tr>
-          <tr>
-            <td>Kylie Jenner's Live Birth Viewing Party. This event will be held on August 20th, 2018</td>
-            <td>2018-08-19 12:00:00</td>
-            <td><div id="4a" class="progress-wrap-sv progress-sv" data-progress-percent=10>
-              <div id="4" class="progress-bar-sv progress-sv"></div>
-            </div></td>
-            <td><button type="button" class="btn btn-success">Going</button></td>
-          </tr>
-
-        </tbody>
-      </table>
+            </div>
+            <button type="button" class="btn btn-default btn-lg">Going 🙋</button>
+          </div>
+        </div>
+      </div>
 
       <script>
       // on page load...
@@ -142,29 +105,7 @@
       $('#2').stop().animate({
           left: progressTotal2
       }, animationLength);
-
-      var getPercent3 = ($('#3a').data('progress-percent') / 100);
-      var getProgressWrapWidth3 = $('#3').width();
-      var progressTotal3 = getPercent3 * getProgressWrapWidth3;
-      var animationLength = 2500;
-
-      // on page load, animate percentage bar to data percentage length
-      // .stop() used to prevent animation queueing
-      $('#3').stop().animate({
-          left: progressTotal3
-      }, animationLength);
-
-      var getPercent4 = ($('#4a').data('progress-percent') / 100);
-      var getProgressWrapWidth4 = $('#4').width();
-      var progressTotal4 = getPercent4 * getProgressWrapWidth4;
-      var animationLength = 2500;
-
-      // on page load, animate percentage bar to data percentage length
-      // .stop() used to prevent animation queueing
-      $('#4').stop().animate({
-          left: progressTotal4
-      }, animationLength);
   }
       </script>
-  </body>
+    </body>
   </html>
