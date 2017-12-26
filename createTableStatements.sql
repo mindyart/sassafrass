@@ -7,9 +7,12 @@ CREATE TABLE Users (
 
 CREATE TABLE Events (
 	EventID INT NOT NULL AUTO_INCREMENT,
+    Title varchar(100),
 	Threshold INT NOT NULL,
 	Going INT,
+    eventDate DATETIME,
 	Deadline DATETIME,
+    description varchar(300),
 	PRIMARY KEY (EventID)
 );
 

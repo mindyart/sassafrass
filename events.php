@@ -2,110 +2,103 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/styles.css?v=<?=time();?>">
     <img src = "assets/logo.jpg" width = 100% height = 40%/>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
     <script>
-    // Get items from local storage for placing in the DB
+    // Get items from local storage for placing in the DB -- figure out how to php <-> js
       var email = localStorage.getItem("Email");
       var id_token = localStorage.getItem("id_token");
     </script>
-
   </head>
+
   <body>
     <h1>What's going on? 📅</h1>
-    <p class="desc"></p>
-    <div class="container" padding = "">
-      <div class="row">
-        <div class="col">
-          <h2><a id="title" href="https://emojikeyboard.org/">Secret Santa</a></h2>
-
+    <div class="container-fluid">
+      <div class="card-deck">
             <?php
             include "dbconnection.php";
 
             $con = getdb();
-            $sql = "SELECT e.Deadline
-                , e.Going
-                ,e.Threshold
-                FROM Events e
-                WHERE e.EventID = 1;";
-
+            $sql = "SELECT e.EventID, e.Title, e.eventDate, e.Deadline, e.Going, e.Threshold FROM Events e order by 3 asc;";
             $result = mysqli_query($con, $sql);
 
             if (mysqli_num_rows($result) > 0) {
 
                while($row = mysqli_fetch_assoc($result)) {
+                 $eventID = $row['EventID'];
                  $going = $row['Going'];
                  $threshold = $row['Threshold'];
-                 $percentage = ($going / $threshold * 100);
-                 echo 'Target date: December 4th, 2017. <br>
-                 Deadline: ' . $row['Deadline'] .
-                 '<h3>' . $going . ' going </h3>
-                 <p class="tiltRight">Tilts at ' . $threshold . '</p>';
+                 $percentage = (($going / $threshold) * 100);
+                 $eventDate = date_create($row['eventDate']);
+                 $deadline = date_create($row['Deadline']);
+                 $interval = date_diff($deadline, $eventDate);
+
+                 echo '
+                  <div class="card">
+                    <div class="cardheader">
+                      <h2><a id="title" href="https://emojikeyboard.org/"> ' . $row['Title'] . ' </a></h2>
+                    </div>
+
+                    <div class="card-body info">
+                      <i>Event date</i>: ' . date_format($eventDate, 'l\, F jS\, Y \@ <b>g:ia</b>') . '<br><br>
+
+                      <p class="alert">' . $interval->format('%a days and %h hours to go!') . '<p>
+
+                      <div class="wrap">
+                        <div class="barz-percentage" data-percentage="' . $percentage . '"></div>
+                        <div class="barz-container">
+                          <div class="barz"></div>
+                        </div>
+                      </div>
+
+                      <span class="tiltLeft"><b>' . $going . '</b> people going </span>
+                      <span class="tiltRight">Tilts at ' . $threshold . '</span>
+
+                      <div class="buttonz">
+                        <form action= "attend.php" method= "post">
+                          <input type="hidden" name="eventID" value="' . $eventID . '"/>
+                          <input type="hidden" name="eventID" value="' . $eventID . '"/>
+                        <button type="button" class="btn btn-lg">Going 🙋</button>
+                      </div>
+                    </div>
+                  </div>
+                 ';
                }
             }
             else
             {
                echo "you have no records";
             }
-
-            echo '<div id="1a" class="progress-wrap-sv progress-sv" data-progress-percent=' . $percentage . '>
-                    <div id="1" class="progress-bar-sv progress-sv"></div>
-                  </div>'
             ?>
-
-		        <button type="button" class="btn btn-default btn-lg">Going 🙋</button>
-          </div>
-          <!-- hardcoded example -->
-          <div class="col">
-            <h2><a id="title" href="http://www.color-hex.com/color-names.html">Basketball Tourney</a></h2>
-            Target date: February 14th, 2018 <br>
-            Deadline: 2018-02-07 23:15:00
-            <h3> 10 going </h3>
-            <p class="tiltRight">Tilts at 20</p>
-            <div id="2a" class="progress-wrap-sv progress-sv" data-progress-percent="50">
-              <div id="2" class="progress-bar-sv progress-sv"></div>
-            </div>
-            <button type="button" class="btn btn-default btn-lg">Going 🙋</button>
           </div>
         </div>
-      </div>
 
+<!-- progress bar script -->
       <script>
-      // on page load...
-  moveProgressBar();
-  // on browser resize...
-  $(window).resize(function() {
-      moveProgressBar();
-  });
-
-  // SIGNATURE PROGRESS
-  function moveProgressBar() {
-    console.log("moveProgressBar");
-      var getPercent1 = ($('#1a').data('progress-percent') / 100);
-      var getProgressWrapWidth1 = $('#1').width();
-      var progressTotal1 = getPercent1 * getProgressWrapWidth1;
-      var animationLength = 2500;
-
-      // on page load, animate percentage bar to data percentage length
-      // .stop() used to prevent animation queueing
-      $('#1').stop().animate({
-          left: progressTotal1
-      }, animationLength);
-
-      var getPercent2 = ($('#2a').data('progress-percent') / 100);
-      var getProgressWrapWidth2 = $('#2').width();
-      var progressTotal2 = getPercent2 * getProgressWrapWidth2;
-      var animationLength = 2500;
-
-      // on page load, animate percentage bar to data percentage length
-      // .stop() used to prevent animation queueing
-      $('#2').stop().animate({
-          left: progressTotal2
-      }, animationLength);
-  }
+      $('.barz-percentage[data-percentage]').each(function () {
+        var progress = $(this);
+        var percentage = Math.ceil($(this).attr('data-percentage'));
+        $({countNum: 0}).animate({countNum: percentage}, {
+          duration: 2000,
+          easing:'linear',
+          step: function() {
+            // What todo on every count
+          var pct = '';
+          if(percentage == 0){
+            pct = Math.floor(this.countNum) + '%';
+          }
+          if(percentage > 100){
+            pct = 100 + '%';
+          }
+          else{
+            pct = Math.floor(this.countNum+1) + '%';
+          }
+          progress.siblings().children().css('width',pct);
+          }
+        });
+      });
       </script>
     </body>
   </html>
